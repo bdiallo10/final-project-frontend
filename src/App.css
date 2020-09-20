@@ -1,0 +1,86 @@
+.App {
+  text-align: center;
+  margin: 0;
+}
+body {
+  background-color: beige;
+}
+p {
+  font-size: larger;
+}
+
+.footer span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: aqua;
+}
+/* .footer {
+  position: fixed;
+  bottom: 0px;
+  margin-left: 1.5em;
+} */
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#body {
+  margin: 0.5em;
+}
+.table {
+  width: 150%;
+}
+.createForm {
+  width: 75%;
+  margin: 5rem;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 1.5em;
+}
+.home {
+  margin-bottom: 1.5em;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: greenyellow;
+}
+
+#basic-nav-dropdown {
+  background-color: greenyellow;
+}
+
+.table {
+  width: 75%;
+  margin: 1em;
+}
+.createTeam {
+  width: 75%;
+  margin: 1em;
+}
+ 
+/* use jquery to hide some content */
