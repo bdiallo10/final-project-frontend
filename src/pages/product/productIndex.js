@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ProductModel from '../../models/product'
 import { Link } from 'react-router-dom'
 import ProductCard from '../../components/ProductCard'
+import Search from '../../components/Search'
 
 //bootstrap imports
 import Container from 'react-bootstrap/Container'
@@ -33,16 +34,22 @@ class productIndex extends Component {
             <div>
                 <div>
                     <h1>All the Product</h1>
-                    <div>
-                        <Link to={`/product/new`}>
-                            <Button>Create A Product</Button>
-                        </Link>
+                    <div className="searchBar">
+                        <div>
+                            <Link to={`/product/new`}>
+                                <Button>Create A Product</Button>
+                            </Link>
+                        </div>
+                        <div>
+                            <Search 
+                            />
+                        </div>
                     </div>
                 </div>
                 <div className='card'>
                     {this.state.product && this.state.product.map((product, index) => {
                     return (
-                            <Container fluid>
+                            <Container fluid key={product._id}>
                                 <div>
                                     <ProductCard 
                                     {...product}/>

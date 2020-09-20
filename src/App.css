@@ -82,5 +82,10 @@ li a:hover {
   width: 75%;
   margin: 1em;
 }
+.searchBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
  
 /* use jquery to hide some content */

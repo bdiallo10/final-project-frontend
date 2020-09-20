@@ -1,38 +1,40 @@
 import React, { Component } from 'react';
 import ProductModel from '../models/product'
 
+
 class Search extends Component {
-    state = {
-        product: [],
-        query: '',
-        filteredProduct: []
+    constructor(props) {
+        super(props);
+        this.state = {
+            product: [],
+            query: '',
+            filteredProduct: []
+        }
+        this.handleInputChange = this.handleInputChange.bind(this)
+    }
+    componentDidMount() {
+        this.fetchData()
     }
 
     handleInputChange = event => {
         const query = event.target.value;
 
-        this.setState(prevState => {
-            const filteredProduct = prevState.product.filter(product => {
-                return product.name.toLowerCase().includes(query.toLowerCase())
-            })
-
-            return {
-                query,
-                filteredProduct
-            }
+        const filteredProduct = this.state.product.filter(product => {
+            return product.productName.toLowerCase().includes(query.toLowerCase())
+        })
+        this.setState({
+            query,
+            filteredProduct
         })
     }
     
-    componentDidMount() {
-        this.fetchData()
-    }
 
     fetchData = () => {
         ProductModel.all().then(data => {
             console.log(data)
             const {query} = this.state;
-            const filteredProduct = data.filter(product => {
-                return product.name.toLowerCase().includes(query.toLowerCase())
+            const filteredProduct = data.product.filter(product => {
+                return product.productName.toLowerCase().includes(query.toLowerCase())
             })
             this.setState({ 
                 product: data.product,
@@ -41,17 +43,21 @@ class Search extends Component {
         })
     }
     render() {
+        console.log(this.state.filteredProduct)
         return (
             <div>
                 <div className="searchForm">
                         <form>
                             <input
-                                placeholder="Search for..."
+                                placeholder="Search for product..."
                                 value={this.state.query}
                                 onChange={this.handleInputChange}
                             />
                         </form>
-                        <div>{this.state.filteredData.map(i => <p>{i.name}</p>)}</div>
+                        {/* <div>{this.state.filteredProduct && this.state.filteredProduct.map(product => (
+                            <p key={product}>
+                                this.state.filteredProduct</p>
+                        ))}</div> */}
                 </div>
             </div>
         );
