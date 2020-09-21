@@ -12,6 +12,13 @@ import Button from 'react-bootstrap/Button'
 class productIndex extends Component {
     state = {
         product: [],
+        filteredList: [],
+    }
+
+    setFilteredList(filteredList) {
+        this.setState({
+            filteredList: [...filteredList]
+        })
     }
 
     componentDidMount() {
@@ -24,10 +31,6 @@ class productIndex extends Component {
             this.setState({ product: data.product})
         })
     }
-     handleChange = (e) =>{
-    this.setState({searchField:e.target.value})
-  }
-
 
     render() {
         return (
@@ -41,13 +44,15 @@ class productIndex extends Component {
                             </Link>
                         </div>
                         <div>
-                            <Search 
+                            <Search
+                                product={this.state.product}
+                                setFilteredList={this.setFilteredList.bind(this)}
                             />
                         </div>
                     </div>
                 </div>
                 <div className='card'>
-                    {this.state.product && this.state.product.map((product, index) => {
+                    {this.state.filteredList && this.state.filteredList.map((product, index) => {
                     return (
                             <Container fluid key={product._id}>
                                 <div>

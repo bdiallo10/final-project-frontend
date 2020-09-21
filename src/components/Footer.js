@@ -12,7 +12,8 @@ class Footer extends Component {
                                 <p>E Boutique</p>
                             </div>
                             <div>
-                                <a href="https://github.com/bdiallo10/seattle-soccer-tournament">Github</a>
+                                <a href="https://github.com/bdiallo10/final-project-frontend">Github Front-End</a>
+                                <a href="https://github.com/bdiallo10/final-project-backend">Github Back-End</a>
                             </div>
                             <div>
                                 <p>Created by Boubacar Diallo</p>

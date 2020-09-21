@@ -88,4 +88,8 @@ li a:hover {
   justify-content: space-around;
 }
  
+.about {
+  text-align: left;
+  margin-left: 1.5em;
+}
 /* use jquery to hide some content */
